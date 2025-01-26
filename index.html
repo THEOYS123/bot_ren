@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RenXploit's Website</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #1e1e2f, #101014);
+            color: white;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: #141421;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            color: #00d9ff;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #aaa;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #00d9ff, 0 0 20px #00d9ff, 0 0 30px #00d9ff;
+            }
+            to {
+                text-shadow: 0 0 20px #00d9ff, 0 0 40px #00d9ff, 0 0 60px #00d9ff;
+            }
+        }
+
+        .search-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .search-container input[type="text"] {
+            width: 50%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .container h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #00ffab;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .card {
+            display: inline-block;
+            background: #20202d;
+            margin: 20px;
+            padding: 20px;
+            width: 300px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            color: #00d9ff;
+        }
+
+        .card p {
+            color: #ddd;
+        }
+
+        .show-more {
+            font-size: 1.2rem;
+            color: #00ffab;
+            cursor: pointer;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #141421;
+            color: #aaa;
+        }
+
+        footer a {
+            color: #00d9ff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to RenXploit's Website</h1>
+        <p>Explore the World of Cybersecurity and Technology</p>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="search-bar" placeholder="Search for services...">
+    </div>
+
+    <div class="container">
+        <h2>What I Do</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>Website Security</h3>
+                <p>Ensuring your websites are secure from vulnerabilities and attacks.</p>
+                <span class="show-more" onclick="showDetails('sec-details')">...</span>
+                <div id="sec-details" style="display:none; margin-top: 10px;">
+                    <p>We offer penetration testing, vulnerability assessments, and much more to ensure your website's integrity and privacy.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Testing & Analysis</h3>
+                <p>Providing in-depth testing services using advanced techniques.</p>
+                <span class="show-more" onclick="showDetails('test-details')">...</span>
+                <div id="test-details" style="display:none; margin-top: 10px;">
+                    <p>We conduct vulnerability scans, penetration tests, and deliver detailed reports on potential risks.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Learning & Sharing</h3>
+                <p>Helping others understand cybersecurity through knowledge sharing.</p>
+                <span class="show-more" onclick="showDetails('learn-details')">...</span>
+                <div id="learn-details" style="display:none; margin-top: 10px;">
+                    <p>We offer tutorials, workshops, and resources to help people learn cybersecurity and its importance.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Created by <a href="#">RenXploit</a> | &copy; 2025</p>
+    </footer>
+
+    <script>
+        function showDetails(id) {
+            const details = document.getElementById(id);
+            if (details.style.display === "none") {
+                details.style.display = "block";
+            } else {
+                details.style.display = "none";
+            }
+        }
+
+        // Search function for filtering services
+        const searchInput = document.getElementById('search-bar');
+        searchInput.addEventListener('input', function() {
+            const query = searchInput.value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                if (title.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+  </html>
