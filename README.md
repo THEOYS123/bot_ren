@@ -1,3 +1,5 @@
+# Bot Premium RenXploit
+
 # Tips Install & Run Script
 ```
 pkg update -y
